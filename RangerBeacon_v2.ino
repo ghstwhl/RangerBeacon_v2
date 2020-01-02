@@ -4,8 +4,24 @@
 *  The mode is switched between pulsing and constant by turning it off, and then on again.
 *  This is accomplished by storing the mode in EEPROM and flipping it in the setup() function.
 *  
-*  Copyright 2020 - Chris Knight - merlin@ghostwheel.com
+*  While developed on a more traditional Arduino device, the production deployment of this
+*  code would be to an ATTiny85 in the form of a DigiSpark USB development board(1).  For 
+*  that you need to add http://digistump.com/package_digistump_index.json to the "Additional
+*  Board Manager URLs" in preferences in the Arduino IDE and then add the DigiStump AVR
+*  Boards package under Tools/Board/Boards Manager.  If your having problems with LED
+*  brightness or inconsistent LED behavior, you might need to compensate for design issues
+*  with the DigiSpark(2).
 *  
+*  
+*  (1) The original (http://digistump.com/products/1) is out of production, but knock-offs 
+*      abound on AliExpress, TradeMe, eBay, etc.
+*  (2) The USB power traces of the original design can barely power the LEDs, and the knock-
+*      offs trimmed the traces even further to save a penny on every few thousand made.  You
+*      will likely need to run a jumper wire between the 5v USB stripe and the VIN pin, and
+*      between the GND stripe and the GND pin.  This will significantly reduce overheating
+*      on the board.
+*  
+*  Copyright 2020 - Chris Knight - merlin@ghostwheel.com
 *  Released under the CC BY-NC-SA license: https://creativecommons.org/licenses/by-nc-sa/4.0/
 */
 
