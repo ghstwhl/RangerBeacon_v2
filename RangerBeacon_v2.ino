@@ -15,11 +15,13 @@
 *  
 *  (1) The original (http://digistump.com/products/1) is out of production, but knock-offs 
 *      abound on AliExpress, TradeMe, eBay, etc.
-*  (2) The USB power traces of the original design can barely power the LEDs, and the knock-
-*      offs trimmed the traces even further to save a penny on every few thousand made.  You
-*      will likely need to run a jumper wire between the 5v USB stripe and the VIN pin, and
-*      between the GND stripe and the GND pin.  This will significantly reduce overheating
-*      on the board.
+*  (2) The VIN pin on the DigiSpark isn't diretly connected to the 5V USB connector.  While
+*      the official schematic(3) has the pinout of a USB-A connector incorrect, it looks like
+*      there is a diode on the 5V pin, and a MC78M05BDTRKG voltage regulator on the VIN pin,
+*      which makes both the 5V and VIN pins a bad choice for powering a string of LEDs.  For
+*      that reason I connected my APA102 data line to D0, the clock line to D1, and the LEDs 
+*      5V and GND directly to the USB traces.  It's hacky, but it works.  Pic coming soon.
+*  (3) https://s3.amazonaws.com/digispark/DigisparkSchematicFinal.pdf
 *  
 *  Copyright 2020 - Chris Knight - merlin@ghostwheel.com
 *  Released under the CC BY-NC-SA license: https://creativecommons.org/licenses/by-nc-sa/4.0/
