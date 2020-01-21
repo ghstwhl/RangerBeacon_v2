@@ -41,6 +41,9 @@
 #define CLOCKPIN 13
 */
 
+#define GREENMAX 127
+#define GREENMIN 63
+
 
 // Initialize the APA102 object
 APA102<DATAPIN, CLOCKPIN> ledStrip;
@@ -69,7 +72,7 @@ void setup()
 // The specific APA102 LEDs I am using from Cool Neon are already gamma
 // corrected, so this should be between 100% and 50% intensity.
 void pulse() {
-  for (int G = 255; 127 <= G; G -= 8 ) {
+  for (int G = GREENMAX; GREENMIN <= G; G -= 8 ) {
     ledStrip.startFrame();
     for(int i = 0; i < LEDS; i++) {
       ledStrip.sendColor(G, 0, 0, 31);
@@ -78,7 +81,7 @@ void pulse() {
     delay(10);
   }
 
-  for (int G = 127; G <= 255; G += 8) {
+  for (int G = GREENMIN; G <= GREENMAX; G += 8) {
     ledStrip.startFrame();
     for(int i = 0; i < LEDS; i++) {
       ledStrip.sendColor(G, 0, 0, 31);
@@ -92,7 +95,7 @@ void pulse() {
 void constant() {
   ledStrip.startFrame();
   for(int i = 0; i < LEDS; i++) {
-    ledStrip.sendColor(255, 0, 0, 31);
+    ledStrip.sendColor(GREENMAX, 0, 0, 31);
   }
   ledStrip.endFrame(LEDS);
 
