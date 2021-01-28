@@ -5,6 +5,10 @@ Code has two modes, constant and pulsing, and switches between modes upon each b
 
 Note:  State is saved via EEPROM, so there is a theoretical limit to the number of power cycles the ATTiny85 can handle before it gets stuck in default mode.
 
+## Arduino library requirements:
+- [APA102](https://github.com/pololu/apa102-arduino)
+- [EEPROM](https://github.com/Chris--A/EEPROM)
+
 ## Design/Construction notes:
 
 Components:
